@@ -1,0 +1,7 @@
+plugins {
+    id 'idea'
+}
+
+group 'br.com.strn'
+version '1.0-SNAPSHOT'
+
