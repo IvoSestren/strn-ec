@@ -9,6 +9,7 @@ dependencies {
     compile project(':database:atualizador')
     compile project(':database:dao-client')
     compile project(':database:dao-master')
+    compile project(':util:token')
 
     compile pkgCommonsFileUpload
     compile pkgSimpleJavaMail

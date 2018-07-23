@@ -5,6 +5,9 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.view.Results;
+import br.com.strn.ec.util.genid.GenId;
+import br.com.strn.ec.util.token.Token;
+import br.com.strn.ec.util.token.TokenUtil;
 
 import javax.inject.Inject;
 
@@ -26,6 +29,8 @@ public class TokenController {
     @Get
     @Path("/")
     public void index() {
-        result.use(Results.http()).body("Oi");
+        Token token = new Token();
+        token.setIdStore(GenId.generate());
+        result.use(Results.http()).body(TokenUtil.toString(token));
     }
 }
