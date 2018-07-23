@@ -3,16 +3,31 @@ plugins {
 }
 
 group 'br.com.strn.ec.core'
-version project.parent.version
+version project.parent.parent.version
 
 dependencies {
+    compile project(':database:atualizador')
     compile project(':database:dao-client')
     compile project(':database:dao-master')
 
+    compile pkgCommonsFileUpload
+    compile pkgSimpleJavaMail
     compile pkgVRaptor
 
-    compileOnly pkgCdiApi
-    compileOnly pkgServletApi
+    providedCompile pkgCdiApi
+    providedCompile pkgServletApi
+}
+
+task dist(dependsOn: 'build') {
+    doLast {
+        copy {
+            from "${buildDir}/libs/strn-api.war"
+            into "${buildDir}/../../../dist/${project.parent.parent.version}/"
+//            rename {
+//                String fileName -> fileName.replace("strn-admin.war", "strn-admin-${project.parent.version}.war")
+//            }
+        }
+    }
 }
 
 war {

@@ -2,6 +2,7 @@ group 'br.com.strn.ec.util'
 version project.parent.parent.version
 
 dependencies {
+    compile pkgJwt
     compile pkgVRaptor
 
     compileOnly pkgCdiApi

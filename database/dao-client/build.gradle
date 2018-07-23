@@ -1,5 +1,5 @@
 group 'br.com.strn.ec.database'
-version project.parent.version
+version project.parent.parent.version
 
 dependencies {
     compile project(':database:dao')

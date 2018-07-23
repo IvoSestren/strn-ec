@@ -3,17 +3,31 @@ plugins {
 }
 
 group 'br.com.strn.ec.core'
-version project.parent.version
+version project.parent.parent.version
 
 dependencies {
     compile project(':database:entities')
     compile project(':database:entities-client')
     compile project(':database:entities-master')
+    compile project(':util:thymeleaf')
 
+    compile pkgJwt
     compile pkgVRaptor
 
     compileOnly pkgCdiApi
     compileOnly pkgServletApi
+}
+
+task dist(dependsOn: 'build') {
+    doLast {
+        copy {
+            from "${buildDir}/libs/strn-admin.war"
+            into "${buildDir}/../../../dist/${project.parent.parent.version}/"
+//            rename {
+//                String fileName -> fileName.replace("strn-admin.war", "strn-admin-${project.parent.version}.war")
+//            }
+        }
+    }
 }
 
 war {

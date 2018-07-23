@@ -13,8 +13,6 @@ include 'database:entities'
 include 'database:entities-client'
 include 'database:entities-master'
 
-include 'template:default'
-
 include 'util:domain'
 include 'util:environment'
 include 'util:genid'
@@ -35,9 +33,10 @@ findProject(':database:entities')?.name = 'entities'
 findProject(':database:entities-client')?.name = 'entities-client'
 findProject(':database:entities-master')?.name = 'entities-master'
 
-findProject(':template:default')?.name = 'default'
-
 findProject(':util:genid')?.name = 'genid'
 findProject(':util:domain')?.name = 'domain'
 findProject(':util:environment')?.name = 'environment'
 findProject(':util:thymeleaf')?.name = 'thymeleaf'
+include 'util:token'
+findProject(':util:token')?.name = 'token'
+
