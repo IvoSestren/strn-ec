@@ -1,0 +1,6 @@
+CREATE TABLE risk (
+  id      CHAVE   NOT NULL,
+  percent INTEGER NOT NULL,
+  color   CHARACTER VARYING(32),
+  CONSTRAINT pk_risk PRIMARY KEY (id)
+);

@@ -1,0 +1,22 @@
+CREATE TABLE orderinvoice (
+  id                              CHAVE                    NOT NULL,
+  id_order                        CHAVE                    NOT NULL,
+  number                          INTEGER                  NOT NULL,
+  delivery_number                 INTEGER                  NOT NULL,
+  delivery_date                   TIMESTAMP WITH TIME ZONE,
+  total_discount_tax_excl         DECIMAL(20, 6)           NOT NULL,
+  total_discount_tax_incl         DECIMAL(20, 6)           NOT NULL,
+  total_paid_tax_excl             DECIMAL(20, 6)           NOT NULL,
+  total_paid_tax_incl             DECIMAL(20, 6)           NOT NULL,
+  total_products                  DECIMAL(20, 6)           NOT NULL,
+  total_products_wt               DECIMAL(20, 6)           NOT NULL,
+  total_shipping_tax_excl         DECIMAL(20, 6)           NOT NULL,
+  total_shipping_tax_incl         DECIMAL(20, 6)           NOT NULL,
+  shipping_tax_computation_method INTEGER                  NOT NULL,
+  total_wrapping_tax_excl         DECIMAL(20, 6)           NOT NULL,
+  total_wrapping_tax_incl         DECIMAL(20, 6)           NOT NULL,
+  shop_address                    TEXT,
+  note                            TEXT,
+  date_add                        TIMESTAMP WITH TIME ZONE NOT NULL,
+  CONSTRAINT pk_orderinvoice PRIMARY KEY (id)
+);

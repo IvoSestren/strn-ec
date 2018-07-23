@@ -1,0 +1,23 @@
+CREATE TABLE cart (
+  id                      CHAVE                    NOT NULL,
+  id_shop_group           CHAVE                    NOT NULL,
+  id_shop                 CHAVE                    NOT NULL,
+  id_carrier              CHAVE                    NOT NULL,
+  delivery_option         TEXT                     NOT NULL,
+  id_lang                 CHAVE                    NOT NULL,
+  id_address_delivery     CHAVE                    NOT NULL,
+  id_address_invoice      CHAVE                    NOT NULL,
+  id_currency             CHAVE                    NOT NULL,
+  id_customer             CHAVE                    NOT NULL,
+  id_guest                CHAVE                    NOT NULL,
+  secure_key              CHARACTER VARYING(32)    NOT NULL,
+  recyclable              BOOLEAN                  NOT NULL,
+  gift                    BOOLEAN                  NOT NULL,
+  gift_message            TEXT,
+  mobile_theme            BOOLEAN                  NOT NULL,
+  allow_seperated_package BOOLEAN                  NOT NULL,
+  date_add                TIMESTAMP WITH TIME ZONE NOT NULL,
+  date_upd                TIMESTAMP WITH TIME ZONE NOT NULL,
+  checkout_session_data   TEXT,
+  CONSTRAINT pk_cart PRIMARY KEY (id)
+);

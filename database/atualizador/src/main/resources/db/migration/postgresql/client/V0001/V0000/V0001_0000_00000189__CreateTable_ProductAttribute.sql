@@ -1,0 +1,22 @@
+CREATE TABLE productattribute (
+  id                  CHAVE          NOT NULL,
+  id_product          CHAVE          NOT NULL,
+  reference           CHARACTER VARYING(32),
+  supplier_reference  CHARACTER VARYING(32),
+  location            CHARACTER VARYING(64),
+  ean13               CHARACTER VARYING(13),
+  isbn                CHARACTER VARYING(32),
+  upc                 CHARACTER VARYING(12),
+  wholesale_price     DECIMAL(20, 6) NOT NULL,
+  price               DECIMAL(20, 6) NOT NULL,
+  ecotax              DECIMAL(17, 6) NOT NULL,
+  quantity            INTEGER        NOT NULL,
+  weight              DECIMAL(20, 6) NOT NULL,
+  unit_price_impact   DECIMAL(20, 6) NOT NULL,
+  default_on          BOOLEAN,
+  minimal_quantity    INTEGER        NOT NULL,
+  low_stock_threshold INTEGER,
+  low_stock_alert     BOOLEAN        NOT NULL,
+  available_date      TIMESTAMP WITH TIME ZONE,
+  CONSTRAINT pk_productattribute PRIMARY KEY (id)
+);

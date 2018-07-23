@@ -1,0 +1,22 @@
+CREATE TABLE supplyorder (
+  id                     CHAVE                    NOT NULL,
+  id_supplier            CHAVE                    NOT NULL,
+  supplier_name          CHARACTER VARYING(64)    NOT NULL,
+  id_lang                CHAVE                    NOT NULL,
+  id_warehouse           CHAVE                    NOT NULL,
+  id_supply_order_state  CHAVE                    NOT NULL,
+  id_currency            CHAVE                    NOT NULL,
+  id_ref_currency        CHAVE                    NOT NULL,
+  reference              CHARACTER VARYING(64)    NOT NULL,
+  date_add               TIMESTAMP WITH TIME ZONE NOT NULL,
+  date_upd               TIMESTAMP WITH TIME ZONE NOT NULL,
+  date_delivery_expected TIMESTAMP WITH TIME ZONE,
+  total_te               DECIMAL(20, 6),
+  total_with_discount_te DECIMAL(20, 6),
+  total_tax              DECIMAL(20, 6),
+  total_ti               DECIMAL(20, 6),
+  discount_rate          DECIMAL(20, 6),
+  discount_value_te      DECIMAL(20, 6),
+  is_template            BOOLEAN,
+  CONSTRAINT pk_supplyorder PRIMARY KEY (id)
+);
