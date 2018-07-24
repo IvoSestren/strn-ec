@@ -1,0 +1,8 @@
+group 'br.com.strn.ec.database'
+version project.parent.parent.version
+
+dependencies {
+    compile project(':database:dao-master')
+
+    compileOnly pkgCdiApi
+}

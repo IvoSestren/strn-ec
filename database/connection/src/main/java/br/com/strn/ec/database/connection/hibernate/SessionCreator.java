@@ -47,11 +47,11 @@ public class SessionCreator {
         // TODO: Pegar o schema do token
 
         String schema;
-//        if (domainSchema != null) {
-//            schema = domainSchema.getSchema();
-//        } else {
-        schema = "public";
-//        }
+        if (domainSchema != null) {
+            schema = domainSchema.getSchema();
+        } else {
+            schema = "public";
+        }
 
 
         Session session = factory

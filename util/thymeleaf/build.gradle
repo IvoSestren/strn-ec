@@ -3,7 +3,9 @@ version project.parent.parent.version
 
 dependencies {
     compile project(':database:entities-client')
+    compile project(':database:producer-entities-client')
 
+    compile pkgHtmlCompressor
     compile pkgThymeleaf
     compile pkgThymeleafJava8
     compile pkgVRaptor

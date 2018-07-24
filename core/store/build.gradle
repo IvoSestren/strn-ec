@@ -10,8 +10,9 @@ dependencies {
     compile project(':database:entities-client')
     compile project(':database:entities-master')
     compile project(':util:thymeleaf')
+    compile project(':util:token')
 
-    compile pkgJwt
+    compile pkgCommonsFileUpload
     compile pkgVRaptor
 
     compileOnly pkgCdiApi

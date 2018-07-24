@@ -8,6 +8,7 @@ import br.com.caelum.vraptor.http.MutableResponse;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.caelum.vraptor.view.ResultException;
 import br.com.strn.ec.database.entities.client.Theme;
+import com.googlecode.htmlcompressor.compressor.HtmlCompressor;
 import org.slf4j.Logger;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
@@ -126,6 +127,7 @@ public class DefaultThymeleafResult implements ThymeleafResult {
 
     @Override
     public ThymeleafResult render() {
+        /*
         try {
             TemplateEngine engine = process();
 
@@ -136,6 +138,16 @@ public class DefaultThymeleafResult implements ThymeleafResult {
         }
 
         return this;
+        */
+
+        response.setCharacterEncoding("UTF-8");
+        try {
+            response.getWriter().print(generate());
+        } catch (IOException e) {
+            logger.error("Error: {}", e.getMessage());
+        }
+
+        return this;
     }
 
     @Override
@@ -143,7 +155,16 @@ public class DefaultThymeleafResult implements ThymeleafResult {
         try {
             TemplateEngine engine = process();
 
-            return engine.process(getTemplateFile(), ctx());
+            String html = engine.process(getTemplateFile(), ctx());
+
+            HtmlCompressor compressor = new HtmlCompressor();
+            compressor.setCompressCss(true);
+            compressor.setCompressJavaScript(true);
+            compressor.setRemoveComments(true);
+            compressor.setRemoveHttpProtocol(true);
+            compressor.setRemoveHttpsProtocol(true);
+            return compressor.compress(html);
+
         } catch (Exception e) {
             logger.error(e.getMessage());
             throw new ResultException("Couldn't write to response body", e);

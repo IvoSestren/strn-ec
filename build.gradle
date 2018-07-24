@@ -12,6 +12,8 @@ ext {
     pkgGroovyAll = 'org.codehaus.groovy:groovy-all:2.3.11'
     pkgHibernateCore = 'org.hibernate:hibernate-core:5.3.1.Final'
     pkgHikariCP = 'com.zaxxer:HikariCP:3.2.0'
+    pkgHtmlCompressor = 'com.googlecode.htmlcompressor:htmlcompressor:1.5.2'
+    pkgHttpClient = 'org.apache.httpcomponents:httpclient:4.5.6'
     pkgJwt = 'com.auth0:java-jwt:3.4.0'
     pkgPostgreSQL = 'org.postgresql:postgresql:42.2.3'
     pkgSimpleJavaMail = 'org.simplejavamail:simple-java-mail:5.0.3'
