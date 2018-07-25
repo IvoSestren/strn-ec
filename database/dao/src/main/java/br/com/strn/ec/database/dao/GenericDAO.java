@@ -36,6 +36,7 @@ public abstract class GenericDAO<T> {
 
     @SuppressWarnings("unchecked")
     public T findById(String id) {
+        /*
         String sql = "SELECT c FROM " + classe.getName() + " c WHERE c.id = :valor";
 
         List<T> query = session
@@ -47,7 +48,11 @@ public abstract class GenericDAO<T> {
             return query.get(0);
 
         return null;
+        */
 
+        return (T) session.get(classe.getName(), id);
+
+        //return (T) session.load(classe.getName(), id);
     }
 
     @SuppressWarnings("unchecked")

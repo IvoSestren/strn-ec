@@ -1,9 +1,9 @@
 package br.com.strn.ec.database.connection.multitenancy;
 
-import com.zaxxer.hikari.hibernate.HikariConnectionProvider;
 import org.hibernate.HibernateException;
 import org.hibernate.engine.config.spi.ConfigurationService;
 import org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider;
+import org.hibernate.hikaricp.internal.HikariCPConnectionProvider;
 import org.hibernate.service.spi.ServiceRegistryAwareService;
 import org.hibernate.service.spi.ServiceRegistryImplementor;
 
@@ -14,7 +14,7 @@ import java.util.Map;
 @SuppressWarnings("SqlNoDataSourceInspection")
 public class MultiTenantProvider implements MultiTenantConnectionProvider, ServiceRegistryAwareService {
 
-    private HikariConnectionProvider connectionProvider = null;
+    private HikariCPConnectionProvider connectionProvider = null;
 
     @Override
     public Connection getAnyConnection() throws SQLException {
@@ -23,13 +23,6 @@ public class MultiTenantProvider implements MultiTenantConnectionProvider, Servi
 
     @Override
     public void releaseAnyConnection(Connection connection) throws SQLException {
-//        try {
-//            connection.createStatement().execute("SET SCHEMA 'public'");
-//            connection.createStatement().execute("SET application_name = 'STRN eCommerce (public)'");
-//        } catch (SQLException e) {
-//            throw new HibernateException("Could not alter JDBC connection to specified schema [public]", e);
-//        }
-
         connectionProvider.closeConnection(connection);
     }
 
@@ -65,7 +58,8 @@ public class MultiTenantProvider implements MultiTenantConnectionProvider, Servi
     public void injectServices(ServiceRegistryImplementor serviceRegistry) {
         Map lSettings = serviceRegistry.getService(ConfigurationService.class).getSettings();
 
-        connectionProvider = new HikariConnectionProvider();
+
+        connectionProvider = new HikariCPConnectionProvider();
         connectionProvider.configure(lSettings);
     }
 

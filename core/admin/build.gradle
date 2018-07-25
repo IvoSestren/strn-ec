@@ -6,6 +6,10 @@ group 'br.com.strn.ec.core'
 version project.parent.parent.version
 
 dependencies {
+    compile project(':database:connection')
+    compile project(':database:dao')
+    compile project(':database:dao-client')
+    compile project(':database:dao-master')
     compile project(':database:entities')
     compile project(':database:entities-client')
     compile project(':database:entities-master')

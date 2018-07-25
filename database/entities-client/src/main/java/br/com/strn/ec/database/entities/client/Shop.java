@@ -7,8 +7,8 @@ import java.io.Serializable;
 @Table(name = "shop")
 public class Shop implements Serializable {
 
-	private String id;
-	private ShopGroup shopGroup;
+    private String id;
+    private ShopGroup shopGroup;
     private String name;
     private Category category;
     private Boolean active;

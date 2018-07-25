@@ -61,6 +61,10 @@ public class ConfigurationCreator {
 
         prop.setProperty("hibernate.hikari.maximumPoolSize", "10");
 
+//        prop.setProperty("hibernate.cache.use_second_level_cache", "true");
+//        prop.setProperty("hibernate.cache.region.factory_class", "org.hibernate.cache.jcache.JCacheRegionFactory");
+//        prop.setProperty("hibernate.javax.cache.provider", "org.ehcache.jsr107.EhcacheCachingProvider");
+
         return prop;
     }
 

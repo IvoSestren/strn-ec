@@ -1,5 +1,6 @@
 package br.com.strn.ec.database.entities.client;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
